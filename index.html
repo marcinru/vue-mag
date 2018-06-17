@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <input type="text" v-model="hello">
-        <div v-show="hello.length > 2">
+        <div v-show="inputIsBiggerThanTwo">
             message: {{ hello }}
         </div>
     </div>
@@ -19,6 +19,11 @@
             el: '#app',
             data: {
                 hello: 'Hello Vue!'
+            },
+            computed: {
+                inputIsBiggerThanTwo() {
+                    return this.hello.length > 2
+                }
             }
         })
     </script>
