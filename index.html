@@ -16,13 +16,22 @@
         <div class="inactive" :class="{ active: inputIsBiggerThanTwo }">
             message: {{ hello }}
         </div>
+        <ul>
+            <li v-for="element in elements">
+                {{ element.txt }}
+            </li>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         var vm = new Vue({
             el: '#app',
             data: {
-                hello: 'Hello Vue!'
+                hello: 'Hello Vue!',
+                elements: [
+                    { txt: 'Element 1' },
+                    { txt: 'Element 2' }
+                ]
             },
             computed: {
                 inputIsBiggerThanTwo() {
