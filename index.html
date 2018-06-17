@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>vue-mag</title>
+    <style>
+        .inactive { color: firebrick; }
+        .active { color: green; }
+    </style>
 </head>
 <body>
     <div id="app">
         <input type="text" v-model="hello">
-        <div v-show="inputIsBiggerThanTwo">
+        <div class="inactive" :class="{ active: inputIsBiggerThanTwo }">
             message: {{ hello }}
         </div>
     </div>
