@@ -16,6 +16,7 @@
         <div class="inactive" :class="{ active: inputIsBiggerThanTwo }">
             message: {{ hello }}
         </div>
+        <button :disabled="!inputIsBiggerThanTwo" @click="addElement">Add element</button>
         <ul>
             <li v-for="element in elements">
                 {{ element.txt }}
@@ -36,6 +37,11 @@
             computed: {
                 inputIsBiggerThanTwo() {
                     return this.hello.length > 2
+                }
+            },
+            methods: {
+                addElement() {
+                    this.elements.push({ txt: this.hello })
                 }
             }
         })
