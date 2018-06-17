@@ -11,6 +11,9 @@
     </style>
 </head>
 <body>
+    <template id="show-message">
+        <span>message: {{ this.message }}</span>
+    </template>
     <div id="app">
         <input type="text" v-model="hello">
         <div class="inactive" :class="{ active: inputIsBiggerThanTwo }">
@@ -27,7 +30,7 @@
     <script>
         Vue.component('show-message', {
             props: ['message'],
-            template: `<span>message: {{ this.message }}</span>`
+            template: '#show-message'
         })
         var vm = new Vue({
             el: '#app',
