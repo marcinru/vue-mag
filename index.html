@@ -14,7 +14,7 @@
     <div id="app">
         <input type="text" v-model="hello">
         <div class="inactive" :class="{ active: inputIsBiggerThanTwo }">
-            message: {{ hello }}
+            <show-message :message="hello" />
         </div>
         <button :disabled="!inputIsBiggerThanTwo" @click="addElement">Add element</button>
         <ul>
@@ -25,6 +25,10 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
+        Vue.component('show-message', {
+            props: ['message'],
+            template: `<span>message: {{ this.message }}</span>`
+        })
         var vm = new Vue({
             el: '#app',
             data: {
@@ -42,6 +46,7 @@
             methods: {
                 addElement() {
                     this.elements.push({ txt: this.hello })
+                    this.hello = ''
                 }
             }
         })
